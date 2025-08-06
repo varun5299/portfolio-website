@@ -1,16 +1,15 @@
-import {Layout, Menu, Switch, theme} from "antd"
+import {Layout, Menu, Switch} from "antd"
 import {Link, useLocation} from "react-router-dom"
 import React from "react"
 import {MoonOutlined, SunOutlined} from "@ant-design/icons"
 import logo from "@assets/logo.png"
 import {useTheme} from "@context/useThemeContext"
 
-const {Header, Content, Footer} = Layout
+const {Header, Content} = Layout
 
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
   const location = useLocation()
   const {mode, toggleTheme} = useTheme()
-  const {token} = theme.useToken()
 
   return (
     <Layout style={{minHeight: "100vh"}}>
@@ -41,14 +40,6 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
         />
       </Header>
       <Content>{children}</Content>
-      <Footer style={{
-        textAlign: "center",
-        fontSize: "12px",
-        padding: "12px 0",
-        lineHeight: "1.4",
-        background: token.colorBgBase,
-        color: token.colorTextBase,
-      }}>© {new Date().getFullYear()} Varun Agarwal</Footer>
     </Layout>
   )
 }
