@@ -7,6 +7,16 @@ export type BlogPost = {
   categories?: string[];
 }
 
+type RSS2JSONItem = {
+  title: string;
+  link: string;
+  pubDate: string;
+  content: string;
+  description: string;
+  thumbnail?: string;
+  categories?: string[];
+}
+
 const MEDIUM_RSS_URL =
   "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@varun.agarwal5299"
 
@@ -14,7 +24,7 @@ export const fetchMediumFeed = async (): Promise<BlogPost[]> => {
   const response = await fetch(MEDIUM_RSS_URL)
   const result = await response.json()
 
-  return result.items.map((item) => {
+  return result.items.map((item: RSS2JSONItem) => {
     const imageMatch = item.content?.match(/<img[^>]+src="([^">]+)"/i)
     const fallbackThumbnail = imageMatch?.[1] || ""
 

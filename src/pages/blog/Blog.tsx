@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react"
-import { Col, Row, Typography, Skeleton, Empty, Button } from "antd"
-import { fetchMediumFeed, BlogPost } from "@utils/fetchMediumFeed"
+import {useEffect, useState} from "react"
+import {Button, Col, Empty, Row, Skeleton, Typography} from "antd"
+import {BlogPost, fetchMediumFeed} from "@utils/fetchMediumFeed"
 import BlogCard from "@components/blog/BlogCard"
 import TagFilter from "@components/blog/TagFilter"
 
-const { Title } = Typography
+const {Title} = Typography
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([])
@@ -14,16 +14,22 @@ const Blog = () => {
   useEffect(() => {
     fetchMediumFeed()
       .then(setPosts)
-      .catch(() => { setPosts([]) })
-      .finally(() => { setLoading(false) })
+      .catch(() => {
+        setPosts([])
+      })
+      .finally(() => {
+        setLoading(false)
+      })
   }, [])
 
   const allTags = Array.from(
-    new Set(posts.flatMap(post => post.categories)),
+    new Set(
+      posts.flatMap(post => post.categories ?? []),
+    ),
   )
 
   const filteredPosts = selectedTag
-    ? posts.filter(post => post.categories.includes(selectedTag))
+    ? posts.filter(post => post.categories?.includes(selectedTag))
     : posts
 
   return (
@@ -32,7 +38,7 @@ const Blog = () => {
 
       {loading ? (
         <Row gutter={[16, 16]}>
-          {Array.from({ length: 6 }).map((_, idx) => (
+          {Array.from({length: 6}).map((_, idx) => (
             <Col xs={24} sm={12} md={8} key={idx}>
               <Skeleton active />
             </Col>
@@ -43,7 +49,7 @@ const Blog = () => {
       ) : (
         <>
           <TagFilter
-            allTags={allTags}
+            allTags={allTags ?? []}
             selectedTag={selectedTag}
             onSelectTag={setSelectedTag}
           />
@@ -57,12 +63,12 @@ const Blog = () => {
           </Row>
 
           {filteredPosts.length === 0 && (
-            <Empty description="No posts match this tag." style={{ marginTop: 48 }} />
+            <Empty description="No posts match this tag." style={{marginTop: 48}} />
           )}
         </>
       )}
 
-      <div style={{ marginTop: "32px", textAlign: "center" }}>
+      <div style={{marginTop: "32px", textAlign: "center"}}>
         <Button
           type="primary"
           size="large"
