@@ -3,6 +3,7 @@ import {Button, Col, Empty, Row, Skeleton, Typography} from "antd"
 import {BlogPost, fetchMediumFeed} from "@utils/fetchMediumFeed"
 import BlogCard from "@components/blog/BlogCard"
 import TagFilter from "@components/blog/TagFilter"
+import PageContainer from "@components/container/PageContainer"
 
 const {Title} = Typography
 
@@ -33,7 +34,7 @@ const Blog = () => {
     : posts
 
   return (
-    <div>
+    <PageContainer>
       <Title level={2}>Blog</Title>
 
       {loading ? (
@@ -78,7 +79,7 @@ const Blog = () => {
           View All Articles
         </Button>
       </div>
-    </div>
+    </PageContainer>
   )
 }
 

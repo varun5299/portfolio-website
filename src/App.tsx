@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import "./App.less"
 import BaseLayout from "@components/layouts/BaseLayout"
 import Home from "@pages/home/Home"
 import Education from "@pages/education/Education"

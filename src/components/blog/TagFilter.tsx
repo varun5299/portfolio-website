@@ -1,5 +1,5 @@
-import { Tag, Typography } from "antd"
-import { JSX } from "react/jsx-runtime"
+import {Tag, Typography} from "antd"
+import {JSX} from "react/jsx-runtime"
 
 type TagFilterProps = {
   allTags: string[];
@@ -7,14 +7,16 @@ type TagFilterProps = {
   onSelectTag: (tag: string | null) => void;
 }
 
-const TagFilter = ({ allTags, selectedTag, onSelectTag }: TagFilterProps): JSX.Element => {
+const TagFilter = ({allTags, selectedTag, onSelectTag}: TagFilterProps): JSX.Element => {
   return (
-    <div style={{ marginBottom: 24 }}>
+    <div style={{marginBottom: 24}}>
       <Typography.Text strong>Filter by tag:</Typography.Text>{" "}
       <Tag
         color={selectedTag === null ? "processing" : "default"}
-        onClick={() => { onSelectTag(null) }}
-        style={{ cursor: "pointer" }}
+        onClick={() => {
+          onSelectTag(null)
+        }}
+        style={{cursor: "pointer"}}
       >
         All
       </Tag>
@@ -22,8 +24,10 @@ const TagFilter = ({ allTags, selectedTag, onSelectTag }: TagFilterProps): JSX.E
         <Tag
           key={tag}
           color={selectedTag === tag ? "processing" : "default"}
-          onClick={() => { onSelectTag(tag) }}
-          style={{ cursor: "pointer" }}
+          onClick={() => {
+            onSelectTag(tag)
+          }}
+          style={{cursor: "pointer"}}
         >
           {tag}
         </Tag>
