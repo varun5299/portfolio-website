@@ -5,15 +5,13 @@ import {MoonOutlined, SunOutlined} from "@ant-design/icons"
 import logo from "@assets/logo.png"
 import {useTheme} from "@context/useThemeContext"
 
-const {Header, Content} = Layout
-
 const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
   const location = useLocation()
   const {mode, toggleTheme} = useTheme()
 
   return (
     <Layout style={{minHeight: "100vh"}}>
-      <Header style={{display: "flex", alignItems: "center", gap: "16px", paddingLeft: 0}}>
+      <Layout.Header style={{display: "flex", alignItems: "center", gap: "16px", paddingLeft: 0}}>
         <Link to="/">
           <img src={logo} alt="Logo"
                style={{aspectRatio: "1/1", width: "300px", height: "300px", paddingTop: "12px"}} />
@@ -38,8 +36,12 @@ const BaseLayout: React.FC<{ children: React.ReactNode }> = ({children}) => {
           checkedChildren={<MoonOutlined />}
           unCheckedChildren={<SunOutlined />}
         />
-      </Header>
-      <Content>{children}</Content>
+      </Layout.Header>
+      <Layout>
+        <Layout.Content>
+          {children}
+        </Layout.Content>
+      </Layout>
     </Layout>
   )
 }

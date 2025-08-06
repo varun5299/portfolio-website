@@ -9,7 +9,7 @@ type TagFilterProps = {
 
 const TagFilter = ({allTags, selectedTag, onSelectTag}: TagFilterProps): JSX.Element => {
   return (
-    <div>
+    <div style={{marginBottom: 24}}>
       <Typography.Text strong>Filter by tag:</Typography.Text>{" "}
       <Tag
         color={selectedTag === null ? "processing" : "default"}
