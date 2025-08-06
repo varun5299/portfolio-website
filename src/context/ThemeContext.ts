@@ -6,4 +6,10 @@ type ThemeContextProps = {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps | null>(null)
+const defaulThemeContextProps: ThemeContextProps = {
+  mode: "light",
+  toggleTheme: () => {
+  },
+}
+
+export const ThemeContext = createContext<ThemeContextProps>(defaulThemeContextProps)

@@ -1,18 +1,48 @@
 {
   "compilerOptions": {
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "target": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
-      "@routes/*": ["routes/*"],
-      "@utils/*": ["utils/*"],
-      "@types/*": ["types/*"],
-      "@theme/*": ["theme/*"],
-      "@config/*": ["config/*"],
-      "@context/*": ["context/*"],
-      "@assets/*": ["assets/*"]
+      "@components/*": [
+        "components/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@routes/*": [
+        "routes/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@types/*": [
+        "types/*"
+      ],
+      "@theme/*": [
+        "theme/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@context/*": [
+        "context/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ]
     },
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true
   }
 }

@@ -12,5 +12,5 @@ export const getTagColor = (tag: string): string => {
     tagColorMap.set(tag, TAG_COLOR_POOL[colorIndex % TAG_COLOR_POOL.length])
     colorIndex++
   }
-  return tagColorMap.get(tag)
+  return tagColorMap.get(tag)!
 }
