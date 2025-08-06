@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@pages/*": ["pages/*"],
+      "@routes/*": ["routes/*"],
+      "@utils/*": ["utils/*"],
+      "@types/*": ["types/*"],
+      "@theme/*": ["theme/*"],
+      "@config/*": ["config/*"],
+      "@context/*": ["context/*"],
+      "@assets/*": ["assets/*"]
+    },
+    "allowSyntheticDefaultImports": true
+  }
+}

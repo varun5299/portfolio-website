@@ -1,0 +1,56 @@
+// Temporary theme while upgrading to antd5
+@primary-color: rgb(2, 107, 110);
+@text-color: rgb(36, 59, 83);
+@error-color: rgb(220, 53, 69);
+@info-color: rgb(33, 33, 177);
+@secondary-color: rgba(255, 195, 19, 1);
+@highlight-shadow-color: rgba(22, 119, 255, 0.85);
+@shadow-color: rgba(0, 0, 0, 0.15);
+@table-row-bg-light: rgb(255, 255, 255);
+@table-row-bg-dark: rgba(251, 251, 251, 1);
+@black: rgb(0, 0, 0);
+@grey: rgb(136, 136, 136);
+@white: rgb(255, 255, 255);
+
+// For ARIA compatibility, use this color for 'light' text
+@contrast-text-color: rgba(115, 115, 115, 1);
+
+// Default spacing
+@space: 1rem;
+@space0: 0;
+@space1: @space * 0.25;
+@space2: @space * 0.5;
+@space3: @space * 1;
+@space4: @space * 1.5;
+@space5: @space * 3;
+
+// Ant Design Break Points
+@breakpoint-xs: 480px;
+@breakpoint-sm: 576px;
+@breakpoint-md: 768px;
+@breakpoint-lg: 992px;
+@breakpoint-xl: 1200px;
+@breakpoint-xxl: 1600px;
+
+// Create variables for use in JS
+:root {
+  --primary: @primary-color;
+  --primary-color: @primary-color;
+  --secondary-color: @secondary-color;
+  --text-color: @text-color;
+  --error-color: @error-color;
+  --hightlight-shadow-color: @highlight-shadow-color;
+  --contrast-text-color: @contrast-text-color;
+  --shadow-color: @shadow-color;
+  --black: @black;
+  --grey: @grey;
+  --white: @white;
+
+  // Default spacing
+  --space0: @space0;
+  --space1: @space1;
+  --space2: @space2;
+  --space3: @space3;
+  --space4: @space4;
+  --space5: @space5;
+}
