@@ -1,16 +1,16 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {
-  faGithub,
-  faLinkedinIn,
-  faYoutube,
-  faGoogle,
   faFacebookF,
+  faGithub,
+  faGoogle,
   faInstagram,
+  faLinkedinIn,
   faXTwitter,
+  faYoutube,
   IconDefinition,
 } from "@fortawesome/free-brands-svg-icons"
-import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import {AnimatePresence, motion} from "framer-motion"
+import {useState} from "react"
 
 const iconMap: Record<string, IconDefinition> = {
   "fa-github": faGithub,
@@ -29,50 +29,59 @@ export type SocialLink = {
   backgroundColor: string;
 }
 
-const SocialIcons = ({ links }: { links: SocialLink[] }) => {
+const SocialIcons = ({links}: {links: SocialLink[]}) => {
   const [hovered, setHovered] = useState<string | null>(null)
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.6, ease: "easeOut" }}
-      style={{ display: "flex", gap: 16, flexWrap: "wrap" }}
+      initial={{opacity: 0, y: 24}}
+      animate={{opacity: 1, y: 0}}
+      transition={{delay: 0.6, duration: 0.6, ease: "easeOut"}}
+      style={{display: "flex", gap: 16, flexWrap: "wrap"}}
     >
       {links.map((item) => (
         <div
           key={item.name}
-          onMouseEnter={() => { setHovered(item.name) }}
-          onMouseLeave={() => { setHovered(null) }}
-          style={{ position: "relative" }}
+          onMouseEnter={() => {
+            setHovered(item.name)
+          }}
+          onMouseLeave={() => {
+            setHovered(null)
+          }}
+          style={{position: "relative"}}
         >
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 36,
-              height: 36,
-              borderRadius: "50%",
-              backgroundColor: item.backgroundColor,
-              color: "#fff",
-              textDecoration: "none",
-              transition: "transform 0.2s ease",
-            }}
+          <motion.div
+            whileHover={{scale: 1.2, rotate: -5}}
+            transition={{type: "spring", stiffness: 300}}
           >
-            <FontAwesomeIcon icon={iconMap[item.fontAwesomeIcon]} />
-          </a>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: 42,
+                height: 42,
+                borderRadius: "50%",
+                backgroundColor: item.backgroundColor,
+                color: "#fff",
+                textDecoration: "none",
+                transition: "transform 0.2s ease",
+              }}
+            >
+              <FontAwesomeIcon icon={iconMap[item.fontAwesomeIcon]} size="2x" />
+            </a>
+          </motion.div>
 
           <AnimatePresence>
             {hovered === item.name && (
               <motion.div
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: -16 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.25 }}
+                initial={{opacity: 0, y: -8}}
+                animate={{opacity: 1, y: -16}}
+                exit={{opacity: 0, y: -8}}
+                transition={{duration: 0.25}}
                 style={{
                   position: "absolute",
                   top: -12,
@@ -82,7 +91,7 @@ const SocialIcons = ({ links }: { links: SocialLink[] }) => {
                   background: "#000",
                   color: "#fff",
                   borderRadius: 4,
-                  fontSize: 12,
+                  fontSize: 14,
                   whiteSpace: "nowrap",
                   pointerEvents: "none",
                   zIndex: 10,

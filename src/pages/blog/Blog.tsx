@@ -4,10 +4,12 @@ import {BlogPost, fetchMediumFeed} from "@utils/fetchMediumFeed"
 import BlogCard from "@components/blog/BlogCard"
 import TagFilter from "@components/blog/TagFilter"
 import PageContainer from "@components/container/PageContainer"
+import {useDocumentTitle} from "@hooks/useDocumentTitle"
 
 const {Title} = Typography
 
 const Blog = () => {
+  useDocumentTitle("Blog")
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedTag, setSelectedTag] = useState<string | null>(null)
@@ -71,7 +73,6 @@ const Blog = () => {
 
       <div style={{marginTop: "32px", textAlign: "center"}}>
         <Button
-          type="primary"
           size="large"
           href="https://medium.com/@varun.agarwal5299"
           target="_blank"
